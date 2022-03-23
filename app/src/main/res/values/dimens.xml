@@ -5,9 +5,9 @@
     <dimen name="error_text_size_18sp">18sp</dimen>
     <dimen name="row_item_margin_vertical_12dp">12dp</dimen>
     <dimen name="empty_data_text_24sp">24sp</dimen>
-    <dimen name="movies_item_padding_2dp">2dp</dimen>
+    <dimen name="movies_item_padding_8dp">8dp</dimen>
     <dimen name="movie_overview_text_size_14sp">14sp</dimen>
     <dimen name="movie_release_date_text_size_12sp">12sp</dimen>
     <dimen name="movie_title_font_size_16sp">16sp</dimen>
-    <dimen name="movie_overview_top_margin">24dp</dimen>
+    <dimen name="movie_overview_top_margin">16dp</dimen>
 </resources>

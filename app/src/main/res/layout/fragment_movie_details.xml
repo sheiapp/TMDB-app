@@ -16,13 +16,16 @@
 
             <ImageView
                 android:id="@+id/movie_thumbnail"
-                android:layout_width="200dp"
+                android:layout_width="0dp"
                 android:layout_height="200dp"
                 android:scaleType="centerInside"
+                app:layout_constraintBottom_toTopOf="@+id/h_guideline"
+                app:layout_constraintEnd_toStartOf="@+id/v_guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/ic_movies"
-                tools:ignore="ContentDescription" />
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/ic_movies" />
 
             <TextView
                 android:id="@+id/movie_title"
@@ -32,7 +35,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/movie_release_layout"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/movie_thumbnail"
+                app:layout_constraintStart_toEndOf="@+id/v_guideline"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
                 app:layout_constraintVertical_chainStyle="packed"
@@ -40,20 +43,21 @@
 
             <LinearLayout
                 android:id="@+id/movie_release_layout"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@+id/movie_budget_layout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/movie_thumbnail"
+                app:layout_constraintStart_toEndOf="@+id/v_guideline"
                 app:layout_constraintTop_toBottomOf="@+id/movie_title"
+                app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintVertical_bias="0.0">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/movies_item_padding_2dp"
+                    android:layout_marginEnd="@dimen/movies_item_padding_8dp"
                     android:text="@string/release_date"
                     android:textStyle="bold" />
 
@@ -66,20 +70,21 @@
 
             <LinearLayout
                 android:id="@+id/movie_budget_layout"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@+id/movie_genres_layout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/movie_thumbnail"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@+id/v_guideline"
                 app:layout_constraintTop_toBottomOf="@+id/movie_release_layout"
                 app:layout_constraintVertical_bias="0.01999998">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/movies_item_padding_2dp"
+                    android:layout_marginEnd="@dimen/movies_item_padding_8dp"
                     android:text="@string/movie_budget"
                     android:textStyle="bold" />
 
@@ -92,21 +97,21 @@
 
             <LinearLayout
                 android:id="@+id/movie_genres_layout"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/movies_item_padding_2dp"
                 app:layout_constraintBottom_toTopOf="@+id/movie_average_vote_layout"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/movie_title"
+                app:layout_constraintStart_toEndOf="@+id/v_guideline"
                 app:layout_constraintTop_toBottomOf="@+id/movie_budget_layout"
                 app:layout_constraintVertical_bias="0.0">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/movies_item_padding_2dp"
+                    android:layout_marginEnd="@dimen/movies_item_padding_8dp"
                     android:text="@string/genres"
                     android:textStyle="bold" />
 
@@ -122,16 +127,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="@+id/movie_thumbnail"
+                app:layout_constraintBottom_toBottomOf="@+id/h_guideline"
+                app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/movie_release_layout"
+                app:layout_constraintStart_toEndOf="@+id/v_guideline"
                 app:layout_constraintTop_toBottomOf="@+id/movie_genres_layout">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/movies_item_padding_2dp"
+                    android:layout_marginEnd="@dimen/movies_item_padding_8dp"
                     android:text="@string/average_vote"
                     android:textStyle="bold" />
 
@@ -147,14 +153,29 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/movie_overview_top_margin"
+                android:padding="@dimen/movies_item_padding_8dp"
                 android:textSize="@dimen/movie_overview_text_size_14sp"
                 android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movie_thumbnail"
+                app:layout_constraintTop_toBottomOf="@id/h_guideline"
                 app:layout_constraintVertical_bias="0.0"
                 tools:text="@string/movie_overview_template" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/v_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".4" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/h_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".6" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -10,8 +10,8 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.tmdb.R
-import com.example.tmdb.utils.Result
 import com.example.tmdb.databinding.FragmentMovieDetailsBinding
+import com.example.tmdb.utils.Result
 import com.example.tmdb.utils.collectLatestLifecycleFlow
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -49,7 +49,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
                     setupThumbnailImage(it.data?.getThumbnailImage())
                     movieTitle.text = it.data?.title
                     movieReleaseDate.text = it.data?.releaseDate
-                    movieBudget.text = it.data?.releaseDate
+                    movieBudget.text = it.data?.budget.toString()
                     movieGenres.text =
                         it.data?.genres?.map { genres -> genres.name }.toString()
                             .removeSurrounding("[", "]")

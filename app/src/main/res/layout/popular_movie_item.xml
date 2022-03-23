@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/movies_item_padding_2dp"
+    android:padding="@dimen/movies_item_padding_8dp"
     android:background="?android:attr/selectableItemBackground"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -53,6 +53,7 @@
         android:maxLines="3"
         android:textSize="@dimen/movie_overview_text_size_14sp"
         android:textStyle="italic"
+        android:ellipsize="end"
         app:layout_constraintTop_toBottomOf="@id/movie_release_date"
         app:layout_constraintStart_toEndOf="@id/movie_thumbnail"
         app:layout_constraintEnd_toEndOf="parent"
