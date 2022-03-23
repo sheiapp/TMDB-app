@@ -34,35 +34,35 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentMovieDetailsBinding.bind(view)
         val movieId = args.movieId
-        setupMoviesDetailsUi(movieId)
+        setupMoviesDetailsUi()
+        viewModel.getMovieDetails(movieId)
         _binding?.includedLayout?.retryButton?.setOnClickListener {
-            setupMoviesDetailsUi(movieId)
+            viewModel.getMovieDetails(movieId)
         }
     }
 
-    private fun setupMoviesDetailsUi(movieId: Int) {
-        if (movieId != 0)
-            collectLatestLifecycleFlow(viewModel.getMovieDetails(movieId)) {
-                Log.d("movie_details", it.toString())
-                if (it is Result.Success) {
-                    _binding?.apply {
-                        setupThumbnailImage(it.data?.getThumbnailImage())
-                        movieTitle.text = it.data?.title
-                        movieReleaseDate.text = it.data?.releaseDate
-                        movieBudget.text = it.data?.releaseDate
-                        movieGenres.text =
-                            it.data?.genres?.map { genres -> genres.name }.toString()
-                                .removeSurrounding("[", "]")
-                        movieAverageVote.text = it.data?.voteAverage.toString()
-                        movieOverview.text = it.data?.overview
-                    }
+    private fun setupMoviesDetailsUi() {
+        collectLatestLifecycleFlow(viewModel.movieDetails) {
+            Log.d("movie_details", it.toString())
+            if (it is Result.Success) {
+                _binding?.apply {
+                    setupThumbnailImage(it.data?.getThumbnailImage())
+                    movieTitle.text = it.data?.title
+                    movieReleaseDate.text = it.data?.releaseDate
+                    movieBudget.text = it.data?.releaseDate
+                    movieGenres.text =
+                        it.data?.genres?.map { genres -> genres.name }.toString()
+                            .removeSurrounding("[", "]")
+                    movieAverageVote.text = it.data?.voteAverage.toString()
+                    movieOverview.text = it.data?.overview
                 }
-                _binding?.includedLayout?.progressBar?.isVisible = it is Result.Loading
-                _binding?.includedLayout?.errorMsg?.isVisible = it is Result.Error
-                _binding?.includedLayout?.retryButton?.isVisible = it is Result.Error
-                _binding?.includedLayout?.errorMsg?.text =
-                    if (it is Result.Error) it.message else ""
             }
+            _binding?.includedLayout?.progressBar?.isVisible = it is Result.Loading
+            _binding?.includedLayout?.errorMsg?.isVisible = it is Result.Error
+            _binding?.includedLayout?.retryButton?.isVisible = it is Result.Error
+            _binding?.includedLayout?.errorMsg?.text =
+                if (it is Result.Error) it.message else ""
+        }
     }
 
     private fun setupThumbnailImage(imageUrl: String?) {
