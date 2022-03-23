@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.example.tmdb.remote.MoviesApi.Companion.SERVER_ERROR
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -34,6 +35,6 @@ suspend fun <T> apiValidator(call: suspend () -> Response<T>): Result<T> {
             Result.Error(response.message())
         }
     } catch (e: Exception) {
-        e.message?.let { Result.Error(it) } ?: Result.Error(UNKNOWN_ERROR)
+        Result.Error(SERVER_ERROR)
     }
 }
