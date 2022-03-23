@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">TMDB</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="retry">Retry</string>
+    <string name="no_results">No results 😓</string>
+    <string name="movie_overview_template">Twenty-five years after a streak of brutal murders shocked the quiet town of Woodsboro, a new killer has donned the Ghostface mask and begins targeting a group of teenagers to resurrect secrets from the town’s deadly past.</string>
+    <string name="movie_release_date_template">2022-01-12</string>
+    <string name="movie_title_template">Scream</string>
+    <string name="movie_budget">Budget -</string>
+    <string name="movie_budget_template">24000000</string>
+    <string name="release_date">Release date -</string>
+    <string name="genres">Genres -</string>
+    <string name="movie_genres_template">Horror, Mystery, Thriller</string>
+    <string name="average_vote">Average vote</string>
+    <string name="movie_average_vote_template">6.8</string>
+</resources>

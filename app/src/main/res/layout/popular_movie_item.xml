@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/movies_item_padding_2dp"
+    android:background="?android:attr/selectableItemBackground"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/movie_thumbnail"
+        android:layout_width="@dimen/thumbnail_size_100dp"
+        android:layout_height="@dimen/thumbnail_size_100dp"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_movies" />
+
+    <TextView
+        android:id="@+id/movie_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="@dimen/movie_title_font_size_16sp"
+        android:layout_marginTop="@dimen/thumbnail_margin_6dp"
+        app:layout_constraintBottom_toTopOf="@id/movie_overview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/movie_thumbnail"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="@string/movie_title_template" />
+
+    <TextView
+        android:id="@+id/movie_release_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:textSize="@dimen/movie_release_date_text_size_12sp"
+        app:layout_constraintBottom_toTopOf="@id/movie_overview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/movie_thumbnail"
+        app:layout_constraintTop_toBottomOf="@id/movie_title"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="@string/movie_release_date_template" />
+
+    <TextView
+        android:id="@+id/movie_overview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:textSize="@dimen/movie_overview_text_size_14sp"
+        android:textStyle="italic"
+        app:layout_constraintTop_toBottomOf="@id/movie_release_date"
+        app:layout_constraintStart_toEndOf="@id/movie_thumbnail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="@string/movie_overview_template" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
