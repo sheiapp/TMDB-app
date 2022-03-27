@@ -42,8 +42,8 @@ class PopularMoviesListFragment : Fragment(R.layout.fragment_popular_movies_list
     private fun setupPopularMoviesList() {
         _binding?.popularMovieRecyclerView?.adapter =
             adapter.withLoadStateFooter(footer = MoviesLoadStateAdapter { adapter.retry() })
-        viewModel.getPopularMovieList().observe(viewLifecycleOwner) {
-            adapter.submitData(viewLifecycleOwner.lifecycle, it)
+        collectLatestLifecycleFlow(viewModel.popularMoviesLiveDataList) { _moviePagingData ->
+            _moviePagingData?.let { it -> adapter.submitData(viewLifecycleOwner.lifecycle, it) }
         }
         collectLatestLifecycleFlow(adapter.loadStateFlow) { loadState ->
             val isListEmpty =

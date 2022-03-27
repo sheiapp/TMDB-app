@@ -15,7 +15,7 @@ class MoviesRepositoryImpl @Inject constructor(
     private val popularMoviesPagingDataSource: PopularMoviesPagingDataSource
 ) : MoviesRepository {
 
-    override fun getSearchResultStream(): Flow<PagingData<Movie>> {
+    override fun getPopularMovieDataStream(): Flow<PagingData<Movie>> {
         return Pager(
             config = PagingConfig(
                 pageSize = NETWORK_PAGE_SIZE,

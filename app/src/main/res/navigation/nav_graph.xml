@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_popular_movies_list">
         <action
             android:id="@+id/action_moviesListFragment_to_movieDetailsFragment"
-            app:destination="@id/movieDetailsFragment" />
+            app:destination="@id/movieDetailsFragment"
+            app:launchSingleTop="true"/>
 
     </fragment>
     <fragment

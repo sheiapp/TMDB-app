@@ -11,7 +11,7 @@ import com.example.tmdb.utils.Result
  */
 interface MoviesRepository {
 
-    fun getSearchResultStream(): Flow<PagingData<Movie>>
+    fun getPopularMovieDataStream(): Flow<PagingData<Movie>>
 
      fun getSelectedMovieDetails(movieId: Int): Flow<Result<MovieDetailsResponse?>>
 
